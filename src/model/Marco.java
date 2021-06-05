@@ -9,12 +9,15 @@ public class Marco implements Runnable{
 	private PApplet app;
 	int alt = -5;
 	boolean rebote = true;
+	private  int dirx,diry;
 	
 	
 	public Marco(float x,float y,PApplet app) {
 		this.x = x;
 		this.y = y;
 		this.app = app;
+		dirx = 1;
+		diry = 1;
 	}
 	
 	public void pintar() {
@@ -35,6 +38,9 @@ public class Marco implements Runnable{
 	}
 	
 	private void mover () {
+		
+		x += 1*dirx;
+		y += 1*diry;
 
 		
 		if (rebote) {
@@ -54,26 +60,28 @@ public class Marco implements Runnable{
 			y -= 2;
 		}
 		
-		
+
 		if (x>=500) {
 			rebote =  false;
-			
+			dirx*=-1;
 		} 
 		
 		if (x<= alt) {
 			rebote = true;
+			dirx*=-1;
 		}
 
 		
 		if (y>=500) {
 			rebote =  false;
-			
+			diry*=-1;
 		} 
 		
 		if (y<= alt) {
 			rebote = true;
+			diry*=-1;
 		}
-
+		
 	}
 
 

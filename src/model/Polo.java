@@ -2,14 +2,13 @@ package model;
 
 import processing.core.PApplet;
 
-public class Polo{
+public class Polo implements Runnable{
 	
 
 	private float x,y;
 	private final float tam = 40;
 	private PApplet app;
 	private  int dirx,diry;
-	private int randomv;
 	int alt = -5;
 	boolean rebote = true;
 	
@@ -18,7 +17,8 @@ public class Polo{
 		this.x = x;
 		this.y = y;
 		this.app = app;
-		randomv = (int) app.random(0,2);
+		dirx = 1;
+		diry = 1;
 	}
 	
 	public void pintar() {
@@ -27,31 +27,25 @@ public class Polo{
 		app.ellipse(x, y, tam, tam);
 		
 	}
+	
+	
+	public void run () {
+		mover();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 	public void mover () {
 		
+		x += 1*dirx;
+		y += 1*diry;
 		
-//		switch(randomv)
-//		{
-//		case 0:
-//			x += 5;
-//			break;
-//		case 1:
-//			x -= 5;
-//			break;
-//		case 2:
-//			y += 5;
-//			break;
-//		case 3:
-//			y -= 5;
-//			break;
-//		}
-		
-
-		
-
 		if (rebote) {
 			x += 1;
-			
+		
 		} else {
 			
 			x -= 1;
@@ -69,61 +63,30 @@ public class Polo{
 		
 		if (x>=500) {
 			rebote =  false;
-			
+			dirx*=-1;
 		} 
 		
 		if (x<= alt) {
 			rebote = true;
+			dirx*=-1;
 		}
 
 		
 		if (y>=500) {
 			rebote =  false;
-			
+			diry*=-1;
 		} 
 		
 		if (y<= alt) {
 			rebote = true;
+			diry*=-1;
 		}
+		
 
-		
-	  
+
+ 
 	}
 	
-	
-	public void rebotar () {
-		
-        //x-=2;
-		
-//		if(x > 500)
-//		{
-//			x = 499;
-//			x -=5;
-//		
-//		}
-//		
-//		if(x < 10)
-//		{
-//			x = 11;
-//			x +=5;
-//		
-//		}
-//		
-//		if(y > 500)
-//		{
-//			y = 499;
-//			y +=5;
-//
-//		}
-//		
-//		if(y < 10)
-//		{
-//			y = 11;
-//			y -=5;
-//	
-//		}
-		
-	}
 
 }
 	

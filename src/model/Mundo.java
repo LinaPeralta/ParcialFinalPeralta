@@ -15,7 +15,10 @@ public class Mundo {
 	public Mundo(PApplet app) {
 		this.app=app;
 		poloList = new ArrayList<>();
-		marco = new Marco(250,250,app);
+		
+		float x1 = app.random(10,490);
+		float y1 = app.random(10,490); 
+		marco = new Marco(x1,y1,app);
 	
 		
 		for (int i = 0; i < polos; i++) {
@@ -42,7 +45,6 @@ public class Mundo {
 		for (Polo polo : poloList) {
 			polo.pintar();
 			polo.mover();
-		//	polo.rebotar();
 		}
 		
 	
