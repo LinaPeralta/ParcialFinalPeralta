@@ -2,7 +2,7 @@ package model;
 
 import processing.core.PApplet;
 
-public class Polo implements Runnable{
+public class Polo {
 	
 
 	private float x,y;
@@ -29,15 +29,7 @@ public class Polo implements Runnable{
 	}
 	
 	
-	public void run () {
-		mover();
-		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+
 	public void mover () {
 		
 		x += 1*dirx;
@@ -81,10 +73,23 @@ public class Polo implements Runnable{
 			rebote = true;
 			diry*=-1;
 		}
-		
 
+	}
 
- 
+	public float getX() {
+		return x;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(float y) {
+		this.y = y;
 	}
 	
 

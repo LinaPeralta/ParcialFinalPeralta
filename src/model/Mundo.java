@@ -11,21 +11,23 @@ public class Mundo {
 	ArrayList<Polo>poloList;
 	int polos = 20;
     private PApplet app;
+    private float x,y,x1,y1;
 	
 	public Mundo(PApplet app) {
 		this.app=app;
 		poloList = new ArrayList<>();
 		
-		float x1 = app.random(10,490);
-		float y1 = app.random(10,490); 
+		
+		 x1 = app.random(10,490);
+		 y1 = app.random(10,490);
+		 
 		marco = new Marco(x1,y1,app);
 	
 		
 		for (int i = 0; i < polos; i++) {
-			//poner coordenadas random
-			float x = app.random(10,490);
-			float y = app.random(10,490);
 			
+			float x = app.random(10,490);
+			float  y = app.random(10,490);
 			poloList.add(new Polo (x,y,app));		
 
 		}
@@ -45,6 +47,18 @@ public class Mundo {
 		for (Polo polo : poloList) {
 			polo.pintar();
 			polo.mover();
+		
+		}
+		
+		//Eliminar Polos cuando Marco los toca
+		
+		for (int i = 0; i < poloList.size(); i++) {
+
+			if (app.dist(marco.getX(),marco.getY() , poloList.get(i).getX(), poloList.get(i).getY()) < 20) {
+
+				poloList.remove(i);
+				
+			}
 		}
 		
 	
