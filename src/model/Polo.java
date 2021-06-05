@@ -27,8 +27,17 @@ public class Polo {
 		app.ellipse(x, y, tam, tam);
 		
 	}
+	public void llamar () {
+		app.fill(0);
+		app.textSize(10);
+		app.text("Polo",x-10,y+30);
+	
+//		app.textSize(10);
+//		app.text(x + " , " + y,x-23,y+40);
+	}
 	
 	
+
 
 	public void mover () {
 		
@@ -91,6 +100,8 @@ public class Polo {
 	public void setY(float y) {
 		this.y = y;
 	}
+
+	
 	
 
 }

@@ -16,8 +16,8 @@ public class Marco implements Runnable{
 		this.x = x;
 		this.y = y;
 		this.app = app;
-		dirx = 1;
-		diry = 1;
+		dirx = 2;
+		diry = 2;
 	}
 	
 	public void pintar() {
@@ -26,6 +26,19 @@ public class Marco implements Runnable{
 		app.ellipse(x, y, tam, tam);
 		
 	}
+	
+	public void llamar () {
+		
+		app.fill(0);
+		app.textSize(10);
+		app.text("Marco",x-20,y+30);
+		
+//		app.textSize(10);
+//		app.text(x + " , " + y,x-23,y+40);
+	
+	}
+	
+	
 	
 	public void run () {
 		mover();
@@ -100,5 +113,22 @@ public class Marco implements Runnable{
 		this.y = y;
 	}
 
+	public int getDirx() {
+		return dirx;
+	}
+
+	public void setDirx(int dirx) {
+		this.dirx = dirx;
+	}
+
+	public int getDiry() {
+		return diry;
+	}
+
+	public void setDiry(int diry) {
+		this.diry = diry;
+	}
+
+	
 
 }

@@ -11,12 +11,16 @@ public class Mundo {
 	ArrayList<Polo>poloList;
 	int polos = 20;
     private PApplet app;
-    private float x,y,x1,y1;
-	
+    private float x1,y1;
+    private boolean llamadom;
+
+    
 	public Mundo(PApplet app) {
 		this.app=app;
 		poloList = new ArrayList<>();
-		
+
+		llamadom = true;
+
 		
 		 x1 = app.random(10,490);
 		 y1 = app.random(10,490);
@@ -38,17 +42,41 @@ public class Mundo {
 	
 	public void draw() {
 		
+		//Marco
 		
+		if (llamadom == true) {
+		
+		marco.llamar();
+
 		marco.pintar();
+		}
+		
 		new Thread(marco).start();
 		
-
 		
+		//Polo
 		for (Polo polo : poloList) {
 			polo.pintar();
 			polo.mover();
+			//new Thread (polo).start();
+			polo.llamar();
 		
 		}
+		
+		
+		//Marco toma posici'on de Polo mas cercano
+		
+		for (int i = 0; i < poloList.size(); i++) {
+			
+
+			if (app.dist(marco.getX(),marco.getY() , poloList.get(i).getX(), poloList.get(i).getY()) < 55) {
+
+			    marco.setX(poloList.get(i).getX());
+			    marco.setY(poloList.get(i).getY());
+			}
+		}
+		
+		
 		
 		//Eliminar Polos cuando Marco los toca
 		
@@ -61,8 +89,16 @@ public class Mundo {
 			}
 		}
 		
-	
-	
+		//Aviso ganar
+		if (poloList.size()==0) {
+			
+			app.fill(162,38,31);
+			app.textSize(50);
+			app.text("GANASTE",135,300);
+			
+			llamadom = false;
+			
+		}
 
 	}
 
