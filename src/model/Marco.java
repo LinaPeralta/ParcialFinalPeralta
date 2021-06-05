@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class Marco {
 	
 	private float x,y;
-	private  final float tam = 50;
+	private  final float tam = 40;
 	private PApplet app;
 	
 	
@@ -16,10 +16,20 @@ public class Marco {
 	}
 	
 	public void pintar() {
+		app.noStroke();
 		app.fill(190,78,50);
 		app.ellipse(x, y, tam, tam);
 		
 	}
+	
+//	public void mover () {
+//		
+////		x =+ 2;
+////		y =+ 2;
+//		
+//		x =+ app.random(-1,1);
+//		y =+ app.random(-2,2);
+//	}
 
 
 }

@@ -28,7 +28,7 @@ public class Main extends PApplet {
 
 		@Override
 		public void draw() {
-			background(239,221,212);
+			background(232,244,252);
 			controller.draw();
 			
 		}
