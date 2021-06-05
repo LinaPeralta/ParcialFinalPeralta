@@ -74,7 +74,6 @@ public class Mundo {
 
 		if (counter1 == 120) {
 			counter1 = 0;
-			System.out.println("marco is here");
 
 			llamadom1 = false;
 
@@ -85,7 +84,6 @@ public class Mundo {
 		if (counter2 == 120) {
 
 			counter2 = 0;
-			System.out.println("polo is here bitch");
 
 			llamadop = true;
 
@@ -96,7 +94,6 @@ public class Mundo {
 		if (counter3 == 240) {
 
 			counter3 = 0;
-			System.out.println("marco is back");
 
 			llamadom1 = true;
 
@@ -108,7 +105,6 @@ public class Mundo {
 		if (counter4 == 240) {
 
 			counter4 = 0;
-			System.out.println("marco is back");
 
 			llamadop = false;
 
