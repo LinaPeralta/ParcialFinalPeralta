@@ -35,18 +35,18 @@ public class Mundo {
 		
 		
 		marco.pintar();
-		//marco.mover();
+		new Thread(marco).start();
+		
+
 		
 		for (Polo polo : poloList) {
 			polo.pintar();
 			polo.mover();
-			polo.rebotar();
+		//	polo.rebotar();
 		}
 		
 	
-		
-
-		new Thread().start();
+	
 
 	}
 

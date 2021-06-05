@@ -2,11 +2,13 @@ package model;
 
 import processing.core.PApplet;
 
-public class Marco {
+public class Marco implements Runnable{
 	
 	private float x,y;
 	private  final float tam = 40;
 	private PApplet app;
+	int alt = -5;
+	boolean rebote = true;
 	
 	
 	public Marco(float x,float y,PApplet app) {
@@ -22,14 +24,57 @@ public class Marco {
 		
 	}
 	
-//	public void mover () {
-//		
-////		x =+ 2;
-////		y =+ 2;
-//		
-//		x =+ app.random(-1,1);
-//		y =+ app.random(-2,2);
-//	}
+	public void run () {
+		mover();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void mover () {
+
+		
+		if (rebote) {
+			x += 2;
+			
+		} else {
+			
+			x -= 2;
+		}
+		
+		
+		if (rebote) {
+			y += 2;
+			
+		} else {
+			
+			y -= 2;
+		}
+		
+		
+		if (x>=500) {
+			rebote =  false;
+			
+		} 
+		
+		if (x<= alt) {
+			rebote = true;
+		}
+
+		
+		if (y>=500) {
+			rebote =  false;
+			
+		} 
+		
+		if (y<= alt) {
+			rebote = true;
+		}
+
+	}
 
 
 }
